@@ -40,6 +40,8 @@ export default function Home() {
             <motion.div initial={{x:800}} whileInView={{x:0}} transition={{duration:0.5,type:"spring",stiffness:80}}  viewport={{once:true}} className="w-[35%] flex flex-col gap-8"  >
               <di className="text-6xl font-bold text-blue-500 ">Track your own data</di>
               <div className="text-lg">Track your data through the dashboard and see your progress, reports, data, everything at one place </div>
+              <button className="rounded-full  px-16 font-bold py-2 shadow-xl text-lg bg-blue-400 text-white">Proceed</button>
+
             </motion.div>
         </div>
         <div
@@ -47,6 +49,7 @@ export default function Home() {
             <motion.div initial={{x:-800}} whileInView={{x:0}} transition={{duration:0.5,type:"spring",stiffness:80}} viewport={{once:true}} className="w-[35%] flex flex-col gap-8" >
               <div className="text-6xl font-bold text-blue-500 ">Connect with your doctor</div>
               <div className="text-lg">Share your realtime data with your doctor and get the precriptions on time without going to anywhere </div>
+              <button className="rounded-full  px-16 font-bold py-2 shadow-xl text-lg bg-blue-400 text-white">connect</button>
             </motion.div>
             <div >
               <Image src="/Images/patientimage2.jpg" width={700} height={700} className="rounded-full"/>
@@ -60,6 +63,7 @@ export default function Home() {
             <motion.div initial={{x:800}} whileInView={{x:0}} transition={{duration:0.5,type:"spring",stiffness:80}} viewport={{once:true}} className="w-[35%] flex flex-col gap-8" >
               <div className="text-6xl font-bold text-blue-500 ">Online Consultation</div>
               <div className="text-lg">Don't have time to go to your doctor, don't worry, connect to an online specialist doctor who will listen to your problem carefully and prescribe according to it</div>
+              <button className="rounded-full  px-16 font-bold py-2 shadow-xl text-lg bg-blue-400 text-white">Consult</button>
             </motion.div>
         </div>
         <div 
@@ -68,6 +72,7 @@ export default function Home() {
             <motion.div initial={{x:-800}} whileInView={{x:0}} transition={{duration:0.5,type:"spring",stiffness:80}} viewport={{once:true}} className="w-[35%] flex flex-col gap-8" >
               <div className="text-6xl font-bold text-blue-500 ">Gamify your health</div>
               <div className="text-lg">Gamify your progress of healthy lifestyle by daily entering your data and earning points for it.Use the points to set your lifestyle goals and reward yourself through it.Also, Get engaged with your friends by seeing their healthy lifestyle points in the leaderboard </div>
+              <button className="rounded-full  px-16 font-bold py-2 shadow-xl text-lg bg-blue-400 text-white">Set Goal</button>
             </motion.div>
             <div >
               <Image src="/Images/patientimage4.jpg" width={700} height={700} className="rounded-full"/>
