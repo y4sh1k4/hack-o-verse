@@ -4,6 +4,17 @@ import { IoNotifications } from "react-icons/io5";
 import Image from "next/image";
 import LineChart from "@/app/Components/Linechart";
 function page() {
+  const waitingPatient=[
+    {image:"/Images/image1.png",name:"kendra slevens",date:"12 march 2022",time:"3:03",message:'I need to check my headache',color:"bg-red-600"},
+    {image:"/Images/image1.png",name:"Selena johns",date:"18 march 22",time:"5:40",message:'I need to check my headache',color:"bg-yellow-300"},
+    {image:"/Images/image1.png",name:"Selena johns",date:"18 march 22",time:"5:40",message:'I need to check my headache',color:"bg-yellow-300"},
+    {image:"/Images/image1.png",name:"Selena johns",date:"18 march 22",time:"5:40",message:'I need to check my headache',color:"bg-yellow-300"},
+    {image:"/Images/image1.png",name:"Selena johns",date:"18 march 22",time:"5:40",message:'I need to check my headache',color:"bg-yellow-300"},
+    {image:"/Images/image1.png",name:"Selena johns",date:"18 march 22",time:"5:40",message:'I need to check my headache',color:"bg-yellow-300"},
+    {image:"/Images/image1.png",name:"Selena johns",date:"18 march 22",time:"5:40",message:'I need to check my headache',color:"bg-yellow-300"},
+    {image:"/Images/image1.png",name:"Selena johns",date:"18 march 22",time:"5:40",message:'I need to check my headache',color:"bg-yellow-300"},
+
+]
   return (
     <div className="w-full flex gap-10 flex-col items-end">
       <div className="flex w-[90%] py-4 items-center  justify-between px-12 rounded-lg h-[8vh] bg-white shadow-lg">
@@ -22,6 +33,7 @@ function page() {
           />
         </div>
       </div>
+      {/* <div className="w-[90%] flex w-full"> */}
       <div className="w-[90%] flex gap-10 flex-col">
         <div className="w-[50vw] flex justify-between">
           <div className="w-[11vw] flex justify-center items-center gap-10  px-4 py-2 bg-white rounded-lg">
@@ -57,7 +69,14 @@ function page() {
         <LineChart/>
         </div>
       </div>
-    </div>
+      <div>
+      <div>
+      </div>
+      </div>
+      
+      </div>
+    // </div>
+    
   );
 }
 

@@ -18,7 +18,6 @@ const page = () => {
         {image:"/Images/image1.png",name:"Selena johns",date:"18 march 22",time:"5:40",message:'I need to check my headache',color:"bg-yellow-300"},
         {image:"/Images/image1.png",name:"Selena johns",date:"18 march 22",time:"5:40",message:'I need to check my headache',color:"bg-yellow-300"},
 
-
     ]
   return (
     <div className='flex '>  

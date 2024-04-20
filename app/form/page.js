@@ -33,6 +33,7 @@ function page() {
             <span>What describes you the best?</span>
             <input
               type="text"
+              placeholder="patient or doctor"
               className="border border-neutral-300 rounded-lg px-2 py-1 mt-2"
               onChange={(e) => setUserType(e.target.value)}
             />
@@ -94,7 +95,7 @@ function page() {
              </div>
            </div>
           )}
-          <Link href="/site/patient">
+          <Link href={`/site/${userType==="doctor"?"doctor/dashboard":"patient"}`}>
           <button className="px-4 py-2 bg-blue-500 text-white rounded-xl shadow-lg" onClick={handleSubmit}>Submit</button>
           </Link>
         </motion.div>
