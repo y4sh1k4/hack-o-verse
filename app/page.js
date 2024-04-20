@@ -1,113 +1,81 @@
+"use client"
 import Image from "next/image";
+import { useState } from "react";
+import Navbar from "./Components/Navbar";
+import Spline from "@splinetool/react-spline";
+import Model from "./Components/Model";
+import { AnimatePresence,motion } from "framer-motion";
 
 export default function Home() {
+  const [selected,setSelected] = useState("patients");
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.js</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+    <AnimatePresence>
+      <div><Navbar/></div>
+      <motion.div initial={{opacity:0,scale:0}} animate={{opacity:1,scale:1}} transition={{duration:0.8,type:"spring",stiffness:50}} id='hero' className="flex w-full h-full bg-white">
+        <div id="text"  className="flex w-full h-[100vh] overflow-hidden flex items-center justify-center gap-0">
+          <div className="w-[40%] h-full flex  flex-col items-start justify-center gap-8">
+            <div className="text-6xl font-bold font-sans text-blue-600">Empower Your Health. <br/>Elevate Your Care</div>
+            <div className="font-sm w-[90%] font-sans">Take control over your wellbeing and manage your health, while giving your doctor a clear view of your progress.</div>
+            <button className="rounded-full  px-16 font-bold py-2 shadow-xl text-lg bg-blue-400 text-white">Get started</button>
+          </div>
+          <div id="3dmodel" className="w-[30%] ">
+              <Model/>
+          </div>
+          
+          </div>
+      </motion.div>
+      <div id="features">
+        <div className="text-7xl font-bold w-full text-center text-blue-500">Features</div>
+        <div id="selector" className="w-full flex justify-center items-center gap-10 my-20"> 
+          <button className={`rounded-lg text-xl text-white px-4 py-2 font-bold  shadow-lg ${selected==="patients"?'bg-blue-500':'bg-blue-200'}`} onClick={()=>setSelected("patients")}>Patients</button>
+          <button className={`rounded-lg text-xl text-white px-4 py-2 font-bold  shadow-lg ${selected==="doctors"?'bg-blue-500':'bg-blue-200'}`} onClick={()=>setSelected("doctors")}>Doctors</button>
+        </div>
+        <div className="flex flex-col gap-10 px-32">
+        <div
+        id="feature1" className="flex h-[70vh] justify-start gap-32 items-center">
+            <div >
+              <Image src="/Images/patientimage1.jpg" width={700} height={700} className="rounded-full"/>
+            </div>
+            <motion.div initial={{x:800}} whileInView={{x:0}} transition={{duration:0.5,type:"spring",stiffness:80}}  viewport={{once:true}} className="w-[35%] flex flex-col gap-8"  >
+              <di className="text-6xl font-bold text-blue-500 ">Track your own data</di>
+              <div className="text-lg">Track your data through the dashboard and see your progress, reports, data, everything at one place </div>
+            </motion.div>
+        </div>
+        <div
+        id="feature1" className="flex h-[70vh] justify-end gap-16 items-center">
+            <motion.div initial={{x:-800}} whileInView={{x:0}} transition={{duration:0.5,type:"spring",stiffness:80}} viewport={{once:true}} className="w-[35%] flex flex-col gap-8" >
+              <div className="text-6xl font-bold text-blue-500 ">Connect with your doctor</div>
+              <div className="text-lg">Share your realtime data with your doctor and get the precriptions on time without going to anywhere </div>
+            </motion.div>
+            <div >
+              <Image src="/Images/patientimage2.jpg" width={700} height={700} className="rounded-full"/>
+            </div>
+        </div>
+        <div
+        id="feature1" className="flex h-[70vh] justify-start gap-16 items-center">
+            <div >
+              <Image src="/Images/patientimage3.jpg" width={700} height={700} className="rounded-full"/>
+            </div>
+            <motion.div initial={{x:800}} whileInView={{x:0}} transition={{duration:0.5,type:"spring",stiffness:80}} viewport={{once:true}} className="w-[35%] flex flex-col gap-8" >
+              <div className="text-6xl font-bold text-blue-500 ">Online Consultation</div>
+              <div className="text-lg">Don't have time to go to your doctor, don't worry, connect to an online specialist doctor who will listen to your problem carefully and prescribe according to it</div>
+            </motion.div>
+        </div>
+        <div 
+        id="feature1" className="flex h-[70vh] justify-end gap-16 items-center">
+            
+            <motion.div initial={{x:-800}} whileInView={{x:0}} transition={{duration:0.5,type:"spring",stiffness:80}} viewport={{once:true}} className="w-[35%] flex flex-col gap-8" >
+              <div className="text-6xl font-bold text-blue-500 ">Gamify your health</div>
+              <div className="text-lg">Gamify your progress of healthy lifestyle by daily entering your data and earning points for it.Use the points to set your lifestyle goals and reward yourself through it.Also, Get engaged with your friends by seeing their healthy lifestyle points in the leaderboard </div>
+            </motion.div>
+            <div >
+              <Image src="/Images/patientimage4.jpg" width={700} height={700} className="rounded-full"/>
+            </div>
+        </div>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      </AnimatePresence>
+    </>
   );
 }
