@@ -5,6 +5,7 @@ import Navbar from "./Components/Navbar";
 import Spline from "@splinetool/react-spline";
 import Model from "./Components/Model";
 import { AnimatePresence,motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Home() {
   const [selected,setSelected] = useState("patients");
@@ -17,7 +18,9 @@ export default function Home() {
           <div className="w-[40%] h-full flex  flex-col items-start justify-center gap-8">
             <div className="text-6xl font-bold font-sans text-blue-600">Empower Your Health. <br/>Elevate Your Care</div>
             <div className="font-sm w-[90%] font-sans">Take control over your wellbeing and manage your health, while giving your doctor a clear view of your progress.</div>
+            <Link href="/form">
             <button className="rounded-full  px-16 font-bold py-2 shadow-xl text-lg bg-blue-400 text-white">Get started</button>
+            </Link>
           </div>
           <div id="3dmodel" className="w-[30%] ">
               <Model/>
